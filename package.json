@@ -1,0 +1,14 @@
+{
+  "name": "vue-traverse",
+  "version": "0.1.0",
+  "description": "Query and extract information from Vue's VDOM",
+  "main": "index.js",
+  "author": "Caleb Hearon",
+  "license": "MIT",
+  "dependencies": {
+    "cssauron": "^1.4.0"
+  },
+  "peerDependencies": {
+    "vue": "~2.5.13"
+  }
+}
