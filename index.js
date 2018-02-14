@@ -1,28 +1,36 @@
 const CSSselect = require('css-select');
 const Vue = require('vue');
 
+function ndata(n) {
+  return Object.assign({attrs: {}, style: {}, class: {}, domProps: {}}, n && n.data);
+}
+
 function vNodeClass(node) {
-  const data = node.data || {};
-  const classes = data.class || {};
+  const {class: classes, staticClass} = ndata(node);
   let ret = '';
 
   for (const name in classes) {
     if (classes[name]) ret += name + ' ';
   }
 
-  if (data.staticClass) ret += data.staticClass + ' ';
+  if (staticClass) ret += staticClass + ' ';
 
   return ret.slice(0, -1);
+}
+
+function vNodeStyle(node) {
+  const style = ndata(node).style;
+  let s = '';
+  for (const attr in style) {
+    s += `${attr}: ${style[attr]}; `;
+  }
+  return s;
 }
 
 // We can't use `instanceof Vue` because the required Vue can be different than
 // the one being used by the project if this is `npm link`ed.
 function isVue(obj) {
   return obj._isVue;
-}
-
-function ndata(n) {
-  return Object.assign({attrs: {}, style: {}, class: {}, domProps: {}}, n && n.data);
 }
 
 function recurse(node, filter, onMatch, parent) {
@@ -128,6 +136,7 @@ const Query = function (root) {
       return reduce.call(this, (s, n) => s + text(n) || '', '');
     },
     attr(name) {
+      if (name === 'style') return vNodeStyle(this[0]);
       return ndata(this[0]).attrs[name];
     },
     css(name) {
