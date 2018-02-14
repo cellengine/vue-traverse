@@ -133,7 +133,7 @@ const Query = function (root) {
     },
     // Node information functions
     text() {
-      return reduce.call(this, (s, n) => s + text(n) || '', '');
+      return ndata(this[0]).domProps.textContent || reduce.call(this, (s, n) => s + text(n) || '', '');
     },
     attr(name) {
       if (name === 'style') return vNodeStyle(this[0]);
