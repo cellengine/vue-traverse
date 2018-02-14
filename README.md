@@ -15,8 +15,8 @@ const expect = require('chai').expect;
 const ConfirmDialog = require('./ConfirmDialog.vue').default;
 
 const vm = new Vue(ConfirmDialog);
-vm.text = 'Are you sure?';
-vm.warn = true;
+vm.text = 'Are you sure?'; // assuming this component has a 'text' prop...
+vm.warn = true; // ... and a 'warn' prop
 vm.$mount();
 
 expect(Query(vm).hasClass('confirm-dialog')).to.be.true;
