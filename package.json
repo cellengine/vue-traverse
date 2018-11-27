@@ -4,6 +4,7 @@
   "description": "Query and extract information from Vue's VDOM",
   "main": "index.js",
   "author": "Caleb Hearon",
+  "repository": "primitybio/vue-traverse",
   "license": "MIT",
   "dependencies": {
     "css-select": "^2.0.2"
