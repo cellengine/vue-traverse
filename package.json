@@ -6,7 +6,7 @@
   "author": "Caleb Hearon",
   "license": "MIT",
   "dependencies": {
-    "css-select": "^1.3.0-rc0"
+    "css-select": "^2.0.2"
   },
   "peerDependencies": {
     "vue": "~2.5.13"
