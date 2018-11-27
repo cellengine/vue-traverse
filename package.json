@@ -1,6 +1,6 @@
 {
   "name": "vue-traverse",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Query and extract information from Vue's VDOM",
   "main": "index.js",
   "author": "Caleb Hearon",
