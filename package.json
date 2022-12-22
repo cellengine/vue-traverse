@@ -10,6 +10,6 @@
     "css-select": "^2.0.2"
   },
   "peerDependencies": {
-    "vue": "~2.5.13"
+    "vue": "^2.5.13"
   }
 }
